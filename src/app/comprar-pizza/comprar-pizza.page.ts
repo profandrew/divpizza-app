@@ -19,4 +19,3 @@ export class ComprarPizzaPage implements OnInit {
   }
 
 }
-.
