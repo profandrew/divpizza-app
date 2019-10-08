@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Finalizar Compra</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Forma de pagamento</ion-label>
+      <ion-select>
+        <ion-select-option value="Crédito">Cartão de crédito</ion-select-option>
+        <ion-select-option value="Débito">Cartão de débito</ion-select-option>
+        <ion-select-option value="Dinheiro">Dinheiro</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <h3 class="ion-padding" style="margin-top: 45px;">
+      Endereço
+    </h3>
+    <ion-item>
+      <ion-label position="floating">Qual seu cep?</ion-label>
+      <ion-input [(ngModel)]="cep"></ion-input>
+    </ion-item>
+    <div style="display: flex; justify-content: flex-end;">
+      <ion-button class="ion-margin-top" (click)="buscarEndereco()">Buscar Endereço</ion-button>
+    </div>
+  </div>
+  <div class="ion-padding">
+    <ion-item>
+      <ion-label position="floating">Rua</ion-label>
+      <ion-input readonly="readonly"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Bairro</ion-label>
+      <ion-input readonly="readonly"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cidade</ion-label>
+      <ion-input readonly="readonly"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Estado</ion-label>
+      <ion-input readonly="readonly"></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="floating">Número</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="floating">Complemento</ion-label>
+          <ion-input></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-button color="dark" expand="block" class="ion-margin-top">FINALIZAR</ion-button>
+  </div>
+</ion-content>

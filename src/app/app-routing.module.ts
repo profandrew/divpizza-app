@@ -7,6 +7,7 @@ const routes: Routes = [
   { path: 'add-pizza', loadChildren: './add-pizza/add-pizza.module#AddPizzaPageModule' },
   { path: 'edit-pizza/:id', loadChildren: './edit-pizza/edit-pizza.module#EditPizzaPageModule' },
   { path: 'comprar-pizza/:id', loadChildren: './comprar-pizza/comprar-pizza.module#ComprarPizzaPageModule' },
+  { path: 'finalizar-compra/:id/:divisor', loadChildren: './finalizar-compra/finalizar-compra.module#FinalizarCompraPageModule' },
 ];
 
 @NgModule({
