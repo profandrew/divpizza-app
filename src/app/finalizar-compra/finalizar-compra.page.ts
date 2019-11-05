@@ -8,6 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class FinalizarCompraPage implements OnInit {
 
   cep:string
+  rua:string
+  cidade:string
+  estado:string
+  bairro:string
 
   constructor() { }
 
@@ -16,9 +20,12 @@ export class FinalizarCompraPage implements OnInit {
 
   async buscarEndereco(){
     console.log(this.cep)
-    fetch("https://viacep.com.br/ws/" + this.cep + "/json").then(function(dados){
-      dados.json().then(function(endereco){
-        console.log(endereco)
+    fetch("https://viacep.com.br/ws/" + this.cep + "/json").then(dados => {
+      dados.json().then(endereco => {
+        this.bairro = endereco.bairro
+        this.cidade = endereco.localidade
+        this.estado = endereco.uf
+        this.rua = endereco.logradouro
       })
     })
   }

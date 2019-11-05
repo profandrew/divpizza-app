@@ -14,6 +14,13 @@ export class HomePage {
   constructor(private menu:ActionSheetController, private route:Router){}
 
   catalogo:Array<Object> = []
+  imagensPizzas:Array<any> = [{
+    chave: "mussarela",
+    imagem: "../assets/queijo.jpg"
+  }, {
+    chave: "portuguesa",
+    imagem: "../assets/portuguesa.jpg"
+  }] 
 
   ionViewDidEnter() {
     console.log("EXECUTOU O VIEW DID ENTER")
@@ -28,6 +35,18 @@ export class HomePage {
       const chaveAtual = localStorage.key(i)
       const pizzaString = localStorage.getItem(chaveAtual)
       const pizzaObjeto = JSON.parse(pizzaString)
+      let objetoDeImagens = this.imagensPizzas.filter((objeto)=>{
+        if(objeto.chave === pizzaObjeto.nomePizza.toLowerCase()) {
+          return objeto
+        }
+      })
+
+      if(objetoDeImagens.length === 0){
+        //não encontrou nenhuma imagem de pizza no nosso
+        //array statico
+        objetoDeImagens.push({imagem: '../assets/pizza1.jpg'})
+      }
+      pizzaObjeto.imagem = objetoDeImagens[0].imagem
       this.catalogo.push(pizzaObjeto)
     }
   }
